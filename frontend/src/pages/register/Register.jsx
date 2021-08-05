@@ -6,21 +6,21 @@ import {BASE_URL} from '../../baseurl';
 
 const Register = () => {
    const [formData, setFormData] = useState({ username: "", email: "", password: "" });
-   const [error, setError] = useState(false);
+   const [errorMsg, setErrorMsg] = useState("");
 
    const onChangeHandler = (e) => {
       setFormData({...formData, [e.target.name]: e.target.value});
-      setError(false);
+      setErrorMsg("");
    }
 
    const handleSubmit = async (e) => {
       e.preventDefault();
-      setError(false);
+      setErrorMsg("");
       try {
          const res = await axios.post(`${BASE_URL}/auth/register`, formData);
          res.data && window.location.replace("/login");
       } catch (err) {
-         setError(true);
+         setErrorMsg(err.response.data);
       }
    }
 
@@ -39,7 +39,7 @@ const Register = () => {
          <button className="registerLoginButton">
             <Link className="link" to="/login">Login</Link>
          </button>
-         {error && <span style={{color:"red", marginTop: "10px"}}>Something went wrong!</span>}
+         {errorMsg && <span style={{color:"red", marginTop: "10px"}}>{errorMsg}</span>}
       </div>
    )
 }

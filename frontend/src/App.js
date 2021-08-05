@@ -6,6 +6,7 @@ import Write from './pages/write/Write';
 import Settings from './pages/settings/Settings';
 import Login from './pages/login/Login';
 import Register from './pages/register/Register';
+import About from './pages/about/About';
 import { useSelector, useDispatch } from 'react-redux';
 import { LoginSuccess } from './redux/actions';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -36,6 +37,7 @@ const App = () => {
         <Route exact path="/register" component={ user ? Home : Register } />
         <Route exact path="/login" component={ user ? Home : Login } />
         <Route exact path="/write" component={ user ? Write : Login } />
+        <Route exact path="/about" component ={ About } />
         <Route exact path="/settings" component={ user ? Settings : Login } />
         <Route exact path="/post/:postId" component={ Single } />
       </Switch>

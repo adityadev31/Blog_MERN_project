@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+
+.about {
+   width: 100vw;
+   height: 90vh;
+   display: flex;
+   align-items: center;
+   padding: 0rem 3rem;
+   padding-top: 5rem;
+   overflow: hidden;
+}
+
+.aboutLeft {
+   flex: 1;
+}
+
+.aboutRight {
+   flex: 1;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 3rem;
+}
+
+.aboutimg {
+   border-radius: 45% 55% 61% 39% / 49% 40% 60% 51%;
+   height: 80vh;
+   object-fit: cover;
+   animation: up-down 3000ms infinite alternate-reverse both;
+}
+
+@keyframes up-down {
+   from {
+      margin-top: 0rem;
+   } to {
+      margin-top: -4.5rem;
+   }
+}
+
+.aboutTitle {
+   font-family: "Varela Round", sans-serif;
+   text-transform: lowercase;
+   font-weight: bold;
+   font-size: 4rem;
+   position: relative;
+   /* text-shadow: 3px 3px 5px rgba(0,0,0,0.2); */
+}
+
+.aboutTitle::after {
+   content: '';
+   display: block;
+   width: 40%;
+   height: 5px;
+   border-radius: 1.5rem;
+   background-color: rgb(95, 95, 95);
+   margin-bottom: 2rem;
+   /* box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.2); */
+}
+
+.aboutheadline {
+   font-family: 'Caveat', cursive;
+   padding: 1rem 0rem;
+   letter-spacing: 1.5px;
+   font-size: 2rem;
+   margin-bottom: 2rem;
+}
+
+.aboutpara {
+   font-family: 'Lora', serif;
+   line-height: 2rem;
+   letter-spacing: 2px;
+}
+
+.aboutSocial {
+   width: 100%;
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+   padding: 1rem 1rem 1rem 0rem;
+}
+
+.aboutSocialIcons {
+   margin: 1rem 0.5rem;
+   font-size: 2rem;
+   cursor: pointer;
+   transition: all 0.3s ease-in;
+}
+
+.aboutSocialIcons:first-of-type {
+   margin-left: 0;
+}
+
+.aboutSocial .facebook:hover {
+   color: #1673EA;
+}
+
+.aboutSocial .twitter:hover {
+   color: #1BB1E4;
+}
+
+.aboutSocial .insta:hover {
+   color: #E80071;
+}
+
+.aboutSocial .linkedin:hover {
+   color: #0073B1;
+}

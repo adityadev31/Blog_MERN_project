@@ -15,9 +15,11 @@ const SinglePost = () => {
    const [updateMode, setUpdateMode] = useState(false);
    const PF = PIC_URL;
    let username = "";
-   if (localStorage.getItem("user") && JSON.parse(localStorage.getItem("user")).user) {
-      username = JSON.parse(localStorage.getItem("user")).user.username;
-   }
+   try {
+      if (localStorage.getItem("user")!==null && JSON.parse(localStorage.getItem("user")).user) {
+         username = JSON.parse(localStorage.getItem("user")).user.username;
+      }
+   } catch(err) {}
 
    const handleDelete = async () => {
       try {
@@ -25,9 +27,7 @@ const SinglePost = () => {
             await axios.delete(`${BASE_URL}/posts/${post._id}`, { data: { username: username } });
             window.location.replace("/");
          }
-      } catch (err) {
-         console.log(path);
-      }
+      } catch (err) {}
    }
 
    const handleUpdate = async () => {
@@ -40,7 +40,6 @@ const SinglePost = () => {
    useEffect(() => {
       const getPost = async () => {
          const res = await axios.get(`${BASE_URL}/posts/${path}`);
-         console.log(res);
          setPost(res.data);
          setTitle(res.data.title);
          setDesc(res.data.desc);
