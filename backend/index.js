@@ -11,6 +11,7 @@ const multer = require("multer");
 const cors = require("cors");
 const { diskStorage } = require("multer");
 const path = require("path");
+const PORT = process.env.PORT;
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
@@ -49,7 +50,7 @@ app.use("/api/categories", categoriesRoute);
 
 // =========== START SERVER ==========
 
-app.listen("5000", ()=> {
+app.listen(PORT, ()=> {
    console.log("Backend is running");
 });
 
